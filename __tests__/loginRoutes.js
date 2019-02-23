@@ -6,13 +6,14 @@ const db = require('../Config/dbConfig');
 
 describe('tests for login routes', ()=>{
     describe('register', ()=>{
-        // afterEach(async ()=>{
-        //     await db('guidrTestDB').truncate();
-        // }),
+        beforeEach(async ()=>{
+            const username = 'TheTeachersBride'
+            await db('users').where('username', username).del();
+        }),
       it('responds with type json', async ()=>{
             const body = {
-                name:'Payton Souder',
-                username: 'TheOtherTeacher',
+                name:'Sam Weaver',
+                username: 'TheTeachersBride',
                 password: 'password'
             };
             const response = await request(server)
@@ -24,7 +25,7 @@ describe('tests for login routes', ()=>{
       describe('login', ()=>{
           it('responds with type json', async ()=>{
               const body = {
-                  username: 'TheOtherTeacher',
+                  username: 'TheRoth',
                   password: 'password'
               };
               const response = await request(server)
@@ -34,7 +35,7 @@ describe('tests for login routes', ()=>{
           }),
           it('responds with a 200', async ()=>{
                 const body = {
-                    username: 'TheOtherTeacher',
+                    username: 'POPs',
                     password: 'password'
                 };
                 const response = await request(server)
