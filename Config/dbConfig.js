@@ -5,7 +5,7 @@
 
 // module.exports = knex(knexConfig[dbEnv]);
 
-const dbEngine = process.env.DB || process.env.TESTING_DB ||'development' ;
+const dbEngine =  process.env.TESTING_DB ||'development' ;
 const config = require('../knexfile')[dbEngine];
 
 module.exports = require('knex')(config);
