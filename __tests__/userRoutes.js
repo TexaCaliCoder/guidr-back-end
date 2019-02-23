@@ -9,6 +9,11 @@ describe('User routes', ()=>{
     
             expect(response.type).toMatch(/json/i);
         }),
-        it('responds with status 200', )
-    })
+        it('responds with status 200', async ()=>{
+            const response = await request(server).get('/users');
+    
+            expect(response.status).toBe(200);
+        })
+    }),
+    describe('gets user by ID')
 })
