@@ -18,8 +18,8 @@ createToken = (user) =>{
         id: user.id
     };
     const options = {
-        expiresIn: '30m',
-        jwtid: toString(Date.now())
+        expiresIn: '1d',
+        // jwtid: toString(Date.now())
     };
     return jwt.sign(payload, jwtKey, options)
 };
