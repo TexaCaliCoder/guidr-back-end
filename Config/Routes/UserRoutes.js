@@ -42,7 +42,6 @@ editUser = (req, res) => {
     const {
         id
     } = req.params;
-    //add validation
     db('users').where('id', id).update(user).then(number => {
         res.json(number)
     }).catch(err =>{
